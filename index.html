@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex, nofollow" />
+<title>Beibei Zhang — Adobe Design Fit Summary</title>
+<style>
+  :root {
+    --adobe-red: #EB1000;
+    --ink: #0F0F0F;
+    --muted: #6B6B6B;
+    --line: #E6E6E6;
+    --bg: #FAFAFA;
+    --card: #FFFFFF;
+    --accent-soft: #FFF1EE;
+    --tier-best: #EB1000;
+    --tier-strong: #F58A07;
+    --tier-possible: #8A8A8A;
+  }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0; padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--adobe-red); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 56px 28px 80px; }
+
+  /* Header */
+  .header { display: flex; justify-content: space-between; align-items: flex-start; gap: 24px; padding-bottom: 28px; border-bottom: 1px solid var(--line); }
+  .logo-row { display: flex; align-items: center; gap: 14px; }
+  .logo-mark { width: 36px; height: 36px; background: var(--adobe-red); color: white; font-weight: 800; display: flex; align-items: center; justify-content: center; border-radius: 6px; font-size: 18px; letter-spacing: -0.5px; }
+  .logo-txt { font-weight: 600; font-size: 14px; color: var(--muted); letter-spacing: 0.3px; text-transform: uppercase; }
+  .me { text-align: right; font-size: 13px; color: var(--muted); }
+  .me b { color: var(--ink); font-weight: 600; }
+
+  /* Intro */
+  .intro { padding: 44px 0 28px; }
+  .intro h1 { font-size: 38px; line-height: 1.15; margin: 0 0 18px; font-weight: 700; letter-spacing: -0.8px; }
+  .intro h1 span { color: var(--adobe-red); }
+  .intro p { font-size: 16px; color: #333; margin: 0 0 14px; max-width: 780px; }
+
+  /* Strengths pillars */
+  .pillars { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin: 30px 0 6px; }
+  .pillar { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 18px; }
+  .pillar .num { color: var(--adobe-red); font-weight: 700; font-size: 12px; letter-spacing: 0.4px; text-transform: uppercase; }
+  .pillar .t { font-size: 15px; font-weight: 600; margin: 6px 0 4px; }
+  .pillar .d { font-size: 13px; color: var(--muted); }
+
+  /* Section title */
+  .sec-title { font-size: 13px; letter-spacing: 0.5px; text-transform: uppercase; color: var(--muted); font-weight: 600; margin: 52px 0 16px; display: flex; align-items: center; gap: 10px; }
+  .sec-title:before { content: ""; display: inline-block; width: 24px; height: 2px; background: var(--adobe-red); }
+
+  /* Role card */
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; margin-bottom: 26px; }
+  .card .top { display: grid; grid-template-columns: 1.1fr 0.9fr; min-height: 260px; }
+  .card .img-wrap { background: #111; overflow: hidden; position: relative; min-height: 260px; }
+  .card .img-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .card .img-fallback { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #1a1a1a, #2a2a2a); color: white; padding: 30px; text-align: center; font-size: 14px; line-height: 1.5; }
+  .card .img-fallback b { display: block; font-size: 22px; margin-bottom: 8px; font-weight: 600; }
+  .card .info { padding: 26px 28px; display: flex; flex-direction: column; gap: 12px; }
+  .tier { display: inline-flex; align-items: center; gap: 6px; font-size: 11px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; padding: 5px 10px; border-radius: 999px; width: fit-content; }
+  .tier.best { background: var(--accent-soft); color: var(--tier-best); }
+  .tier.strong { background: #FFF6EA; color: var(--tier-strong); }
+  .tier.possible { background: #F1F1F1; color: var(--tier-possible); }
+  .tier .dot { width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
+  .card h2 { font-size: 22px; line-height: 1.25; margin: 0; letter-spacing: -0.3px; font-weight: 700; }
+  .card .meta { display: flex; flex-wrap: wrap; gap: 14px; font-size: 13px; color: var(--muted); }
+  .card .meta span b { color: var(--ink); font-weight: 600; }
+  .card .product { font-size: 14px; color: #444; margin: 0; }
+  .card .product b { color: var(--adobe-red); }
+  .card .link { font-size: 13px; margin-top: 2px; }
+
+  /* Body (expanded content) */
+  .card .body { border-top: 1px solid var(--line); padding: 24px 28px 28px; display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+  .block h4 { font-size: 12px; letter-spacing: 0.5px; text-transform: uppercase; color: var(--muted); margin: 0 0 10px; font-weight: 700; }
+  .block ul { margin: 0; padding-left: 18px; }
+  .block ul li { margin-bottom: 6px; font-size: 14px; color: #2c2c2c; }
+  .fit-list li { list-style: none; position: relative; padding-left: 22px; margin-bottom: 10px; font-size: 14px; }
+  .fit-list li:before { content: "✓"; position: absolute; left: 0; top: 0; color: var(--adobe-red); font-weight: 700; }
+  .fit-list li b { color: #000; }
+
+  /* Closing */
+  .close { margin-top: 56px; padding: 34px 32px; background: var(--card); border: 1px solid var(--line); border-radius: 14px; }
+  .close h3 { margin: 0 0 10px; font-size: 20px; }
+  .close p { margin: 0 0 8px; color: #333; font-size: 15px; }
+  .close .sig { margin-top: 20px; color: var(--muted); font-size: 14px; }
+  .close .sig b { color: var(--ink); }
+
+  /* Footer */
+  .foot { margin-top: 40px; text-align: center; color: var(--muted); font-size: 12px; }
+
+  @media (max-width: 780px) {
+    .intro h1 { font-size: 30px; }
+    .pillars { grid-template-columns: repeat(2, 1fr); }
+    .card .top { grid-template-columns: 1fr; }
+    .card .img-wrap { min-height: 220px; }
+    .card .body { grid-template-columns: 1fr; gap: 20px; }
+    .header { flex-direction: column; }
+    .me { text-align: left; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- Header -->
+  <div class="header">
+    <div class="logo-row">
+      <div class="logo-mark">A</div>
+      <div>
+        <div style="font-weight:700; font-size:18px;">Adobe Design · Fit Summary</div>
+        <div class="logo-txt">Prepared for the hiring team</div>
+      </div>
+    </div>
+    <div class="me">
+      <b>Beibei Zhang</b><br/>
+      Staff Product Designer · 15+ yrs<br/>
+      beibeizhang1122@gmail.com · 415-309-6496<br/>
+      <a href="https://beibeidesign.com">beibeidesign.com</a> · <a href="https://www.linkedin.com/">LinkedIn</a>
+    </div>
+  </div>
+
+  <!-- Intro -->
+  <section class="intro">
+    <h1>Why I'm a strong fit for <span>Adobe Design</span>.</h1>
+    <p>Hi — I'm Beibei. I'm a design leader with 15+ years of experience across Tencent, Cheetah Mobile, Walmart Global Tech, and founder-led ventures. I've spent the last year designing <b>WorkPal</b>, an agentic AI workspace — the same problem space Adobe is now shaping with Firefly, GenStudio, and Acrobat AI Assistant.</p>
+    <p>I've gone through Adobe Design's current openings and picked the six roles where my background maps most directly. Below is a short summary of each — what the product is, what the role needs, and where my experience lines up.</p>
+
+    <!-- Strengths pillars -->
+    <div class="pillars">
+      <div class="pillar">
+        <div class="num">01</div>
+        <div class="t">Agentic AI, hands-on</div>
+        <div class="d">Designed WorkPal — an autonomous AI agent system for meeting summaries, task creation, cross-platform retrieval. Established interaction protocols for AI surfaces end-to-end.</div>
+      </div>
+      <div class="pillar">
+        <div class="num">02</div>
+        <div class="t">Scale, proven</div>
+        <div class="d">Shaped flows used by 740M+ users at Cheetah; led Last Mile Delivery platform at Walmart Global Tech — awarded "Making a Difference" for strategic impact.</div>
+      </div>
+      <div class="pillar">
+        <div class="num">03</div>
+        <div class="t">0→1 and systems</div>
+        <div class="d">Cofounded Tooride (5-yr venture). At Tencent, authored cross-product SNS guidelines and a chapter in the official design book. Comfortable in both modes.</div>
+      </div>
+      <div class="pillar">
+        <div class="num">04</div>
+        <div class="t">Player-coach</div>
+        <div class="d">I hold the craft bar personally, mentor designers, and drive cross-functional alignment. Executives have called out clarity under ambiguity as a core strength.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BEST FIT -->
+  <div class="sec-title">Best fit — highest alignment</div>
+
+  <!-- 1. Principal Designer, GenStudio -->
+  <article class="card">
+    <div class="top">
+      <div class="img-wrap">
+        <img src="https://news.adobe.com/news/downloads/images/2026/04/media_1ed29863de910b7a9879e0bd1d7ff17e9c3a0f1ba.png" alt="Adobe GenStudio interface"
+             onerror="this.parentElement.innerHTML='<div class=&quot;img-fallback&quot;><b>Adobe GenStudio</b>Enterprise generative AI platform for campaign orchestration, content supply chain, and AI agents that keep marketing on-brand at scale.</div>'" />
+      </div>
+      <div class="info">
+        <span class="tier best"><span class="dot"></span>Best fit</span>
+        <h2>Principal Product Designer, GenStudio</h2>
+        <div class="meta">
+          <span><b>Product:</b> Adobe GenStudio + Firefly Enterprise</span>
+          <span><b>Location:</b> US, multiple markets</span>
+          <span><b>Level:</b> Principal · 15+ yrs</span>
+          <span><b>Salary:</b> $175,600 – $334,500 + AIP + equity</span>
+        </div>
+        <p class="product"><b>What is it?</b> GenStudio is Adobe's enterprise generative-AI platform for marketing. It orchestrates campaigns end-to-end — brand intelligence, AI agents, on-brand content creation at scale — connecting Firefly, Workfront, Experience Manager, Campaign, and Journey Optimizer.</p>
+        <a class="link" href="https://adobe.design/careers/r166105-principal-designer">View original posting →</a>
+      </div>
+    </div>
+    <div class="body">
+      <div class="block">
+        <h4>What the role needs</h4>
+        <ul>
+          <li>Design vision for campaign orchestration + enterprise generative AI</li>
+          <li>Translate complex AI workflows into human-centered experiences</li>
+          <li>Comfort with prototyping, "vibe coding," and experimentation</li>
+          <li>15+ years shipping digital products; mentor design team</li>
+          <li>Deep interest in AI and creative technology</li>
+        </ul>
+      </div>
+      <div class="block">
+        <h4>Why I fit</h4>
+        <ul class="fit-list">
+          <li><b>Agentic AI, shipped.</b> WorkPal is literally an autonomous AI agent system for enterprise workflow (meetings, tasks, cross-platform retrieval) — the exact pattern GenStudio is building for marketers.</li>
+          <li><b>Campaign + orchestration instinct.</b> At Walmart Last Mile I restructured an end-to-end orchestration workflow (driver + dispatch + customer) to reduce cost and enable platform growth — same "multi-surface, multi-actor" problem shape.</li>
+          <li><b>15+ years, vision + craft.</b> Tencent cross-product guidelines → Walmart platform strategy → WorkPal 0→1 AI. I lead design vision and still prototype by hand.</li>
+          <li><b>Mentor at scale.</b> Taught internal Mobile/Social UX courses at Tencent; have been the player-coach lead on multi-designer teams ever since.</li>
+        </ul>
+      </div>
+    </div>
+  </article>
+
+  <!-- 2. Sr Staff, Platform Design -->
+  <article class="card">
+    <div class="top">
+      <div class="img-wrap">
+        <img src="https://cdn.sanity.io/images/s6lu43cv/production-v4/986a154c29a0b0b406905a181aee041d6e81b6e1-1080x1080.jpg?w=2400&h=2400&q=100&auto=format&fit=max" alt="Adobe platform design representative"
+             onerror="this.parentElement.innerHTML='<div class=&quot;img-fallback&quot;><b>Adobe Platform</b>Foundational experiences — identity, asset &amp; brand management, enterprise admin — used across every Adobe product.</div>'" />
+      </div>
+      <div class="info">
+        <span class="tier best"><span class="dot"></span>Best fit</span>
+        <h2>Sr Staff Product Designer, Platform Design</h2>
+        <div class="meta">
+          <span><b>Product:</b> Adobe Platform (identity, asset/brand mgmt, enterprise admin)</span>
+          <span><b>Location:</b> US, multiple markets</span>
+          <span><b>Level:</b> Sr Staff · 8+ yrs</span>
+          <span><b>Salary:</b> $158,000 – $301,050 + AIP + equity</span>
+        </div>
+        <p class="product"><b>What is it?</b> The foundational layer beneath every Adobe product — identity, shared assets, brand management, and enterprise admin workflows. Design here unifies disparate experiences into one cohesive customer journey.</p>
+        <a class="link" href="https://adobe.design/careers/r165810-sr-staff-designer">View original posting →</a>
+      </div>
+    </div>
+    <div class="body">
+      <div class="block">
+        <h4>What the role needs</h4>
+        <ul>
+          <li>Translate complex user/business needs into scalable design</li>
+          <li>Unite multiple disparate experiences into cohesive solutions</li>
+          <li>Thrive in ambiguity, drive alignment amid shifting priorities</li>
+          <li>Figma + Cursor + AI-powered prototyping</li>
+          <li>Mentor designers; present strategies to senior leadership</li>
+        </ul>
+      </div>
+      <div class="block">
+        <h4>Why I fit</h4>
+        <ul class="fit-list">
+          <li><b>Platform thinking is my default.</b> At Walmart I restructured Last Mile from point-solutions into a platform that scaled across third-party delivery scenarios — awarded "Making a Difference."</li>
+          <li><b>Unifying disparate surfaces.</b> At Tencent I authored cross-product SNS design guidelines spanning multiple social platforms — literally the "unite disparate experiences" brief.</li>
+          <li><b>Clarity in ambiguity.</b> LinkedIn recommendations call out my ability to drive clarity in ambiguous environments — the exact skill this role names.</li>
+          <li><b>Senior leadership presence.</b> I've presented design strategy to VP/exec stakeholders at Walmart and investors at Tooride.</li>
+        </ul>
+      </div>
+    </div>
+  </article>
+
+  <!-- 3. Sr Staff, Frame.io -->
+  <article class="card">
+    <div class="top">
+      <div class="img-wrap">
+        <img src="https://cdn.sanity.io/images/s6lu43cv/production-v4/13b6177b537aee0fc311a867ea938f16416e8670-3840x2160.jpg?w=2400&h=1350&q=30&auto=format&fit=max" alt="Frame.io interface"
+             onerror="this.parentElement.innerHTML='<div class=&quot;img-fallback&quot;><b>Frame.io</b>Creative collaboration platform — 1M+ creative professionals use it to review, manage, and deliver video/image assets.</div>'" />
+      </div>
+      <div class="info">
+        <span class="tier best"><span class="dot"></span>Best fit</span>
+        <h2>Sr Staff Product Designer, Frame.io</h2>
+        <div class="meta">
+          <span><b>Product:</b> Frame.io (Adobe)</span>
+          <span><b>Location:</b> US, multiple markets</span>
+          <span><b>Level:</b> Sr Staff · 10+ yrs</span>
+          <span><b>Salary:</b> $158,000 – $301,050 + AIP + equity</span>
+        </div>
+        <p class="product"><b>What is it?</b> Frame.io is Adobe's creative collaboration hub — 1M+ creative professionals use it to review, manage, and deliver video and image assets. Tightly integrated with Premiere Pro and the rest of Creative Cloud.</p>
+        <a class="link" href="https://adobe.design/careers/r165084-sr-staff-designer">View original posting →</a>
+      </div>
+    </div>
+    <div class="body">
+      <div class="block">
+        <h4>What the role needs</h4>
+        <ul>
+          <li>Shape product-wide design strategy and vision</li>
+          <li>10+ years, category-leading product track record</li>
+          <li>Executive-level communication and influence</li>
+          <li>Generative AI + emerging creative workflows</li>
+          <li>Design leadership and mentorship at scale</li>
+        </ul>
+      </div>
+      <div class="block">
+        <h4>Why I fit</h4>
+        <ul class="fit-list">
+          <li><b>Category-leading track record.</b> Booster mobile hit 4.9★ under my design lead; Tencent Music and QZone carried design systems I helped establish at Tencent.</li>
+          <li><b>Strategy + vision at scale.</b> Walmart Last Mile strategic design impact was recognized company-wide; I operate at the product-wide vision layer, not just screen craft.</li>
+          <li><b>Gen AI + creative workflows.</b> WorkPal is my current proof — AI-native collaboration across creative/knowledge work.</li>
+          <li><b>Creative DNA.</b> China Academy of Art (B.A., honors) + 15+ years across consumer creative products. I speak creators' language.</li>
+        </ul>
+      </div>
+    </div>
+  </article>
+
+  <!-- STRONG FIT -->
+  <div class="sec-title">Strong fit — direct alignment</div>
+
+  <!-- 4. Staff Designer, Frame.io (r162777) -->
+  <article class="card">
+    <div class="top">
+      <div class="img-wrap">
+        <img src="https://cdn.sanity.io/images/s6lu43cv/production-v4/56be069f6a33d56f51d21d721eada2449ddf424b-3840x2160.png?w=2400&h=1350&q=80&auto=format&fit=max" alt="Frame.io sharing interface"
+             onerror="this.parentElement.innerHTML='<div class=&quot;img-fallback&quot;><b>Frame.io</b>Review, feedback, and approval flows for creative teams — deeply integrated with Premiere Pro.</div>'" />
+      </div>
+      <div class="info">
+        <span class="tier strong"><span class="dot"></span>Strong fit</span>
+        <h2>Staff Product Designer, Frame.io <span style="color:var(--muted); font-weight:500; font-size:14px;">(r162777)</span></h2>
+        <div class="meta">
+          <span><b>Product:</b> Frame.io (Adobe)</span>
+          <span><b>Location:</b> US, multiple markets</span>
+          <span><b>Level:</b> Staff · 8+ yrs</span>
+          <span><b>Salary:</b> $146,300 – $274,300 + AIP + equity</span>
+        </div>
+        <p class="product"><b>What is it?</b> Own end-to-end design for strategic Frame.io initiatives — from problem framing to high-fidelity prototype, using Cursor + Figma + gen-AI tooling.</p>
+        <a class="link" href="https://adobe.design/careers/r162777-staff-product-designer">View original posting →</a>
+      </div>
+    </div>
+    <div class="body">
+      <div class="block">
+        <h4>What the role needs</h4>
+        <ul>
+          <li>End-to-end design ownership, high-impact initiatives</li>
+          <li>Mastery of visual, interaction, and prototyping craft</li>
+          <li>Prototyping with Cursor, Figma, AI-powered tools</li>
+          <li>Systems thinking + strategic product sense</li>
+          <li>Mentor and elevate the design org</li>
+        </ul>
+      </div>
+      <div class="block">
+        <h4>Why I fit</h4>
+        <ul class="fit-list">
+          <li><b>Hands-on with AI prototyping tools.</b> WorkPal built with Figma + AI coding tools; I'm currently in the "vibe coding" toolchain this role lists.</li>
+          <li><b>End-to-end ownership.</b> 0→1 at Tooride and on WorkPal; strategic scope at Walmart. I own the arc from problem framing to ship.</li>
+          <li><b>8+ is well under my 15+.</b> I'd bring Principal-adjacent experience into a Staff IC role, with full craft bar intact.</li>
+        </ul>
+      </div>
+    </div>
+  </article>
+
+  <!-- 5. Staff Designer, Frame.io (r165232) -->
+  <article class="card">
+    <div class="top">
+      <div class="img-wrap">
+        <img src="https://cdn.sanity.io/images/s6lu43cv/production-v4/a72b959dfaf3ca04e3375c9511851b935cc10c8d-1080x1080.jpg?w=2400&h=2400&q=100&auto=format&fit=max" alt="Frame.io review"
+             onerror="this.parentElement.innerHTML='<div class=&quot;img-fallback&quot;><b>Frame.io</b>Review, feedback, approval — where creative teams converge.</div>'" />
+      </div>
+      <div class="info">
+        <span class="tier strong"><span class="dot"></span>Strong fit</span>
+        <h2>Staff Product Designer, Frame.io <span style="color:var(--muted); font-weight:500; font-size:14px;">(r165232)</span></h2>
+        <div class="meta">
+          <span><b>Product:</b> Frame.io (Adobe)</span>
+          <span><b>Location:</b> US, multiple markets</span>
+          <span><b>Level:</b> Staff · 8+ yrs</span>
+          <span><b>Salary:</b> $146,300 – $274,300 + AIP + equity</span>
+        </div>
+        <p class="product"><b>What is it?</b> A second Staff IC posting on Frame.io — similar scope as r162777 with slightly different team emphasis on accessibility and WCAG-aware design.</p>
+        <a class="link" href="https://adobe.design/careers/r165232-staff-designer">View original posting →</a>
+      </div>
+    </div>
+    <div class="body">
+      <div class="block">
+        <h4>What the role needs</h4>
+        <ul>
+          <li>Exceptional craft across visual + interaction + prototyping</li>
+          <li>Systems design + strategic product thinking</li>
+          <li>Storytelling and cross-functional partnership</li>
+          <li>Awareness of emerging gen-AI creative workflows</li>
+        </ul>
+      </div>
+      <div class="block">
+        <h4>Why I fit</h4>
+        <ul class="fit-list">
+          <li><b>Storytelling is a core strength.</b> I authored "Design is Communication" in Tencent's official design book — this is the chapter I literally wrote.</li>
+          <li><b>Systems + strategy both.</b> Tencent SNS guidelines (system) + Walmart Last Mile (strategy) + WorkPal (0→1). I've played all three lanes.</li>
+          <li><b>Emerging-AI fluency.</b> I'm not just "aware" of gen-AI workflows — I've been designing one for the past year.</li>
+        </ul>
+      </div>
+    </div>
+  </article>
+
+  <!-- BONUS: Document Cloud GenAI -->
+  <div class="sec-title">Bonus recommendation — not in your original list, but a near-perfect match</div>
+
+  <article class="card">
+    <div class="top">
+      <div class="img-wrap">
+        <img src="https://blog.adobe.com/en/publish/2026/04/15/media_1c50c833f9a9ea7d9952feb4e372a4c300092f3a8.png?width=750&format=png&optimize=medium" alt="Acrobat AI Assistant"
+             onerror="this.parentElement.innerHTML='<div class=&quot;img-fallback&quot;><b>Acrobat AI Assistant</b>Conversational AI layer over documents — 600M+ monthly active users. Recognized in TIME Best Inventions 2024.</div>'" />
+      </div>
+      <div class="info">
+        <span class="tier best"><span class="dot"></span>Very high fit</span>
+        <h2>Staff Product Designer, Document Cloud GenAI</h2>
+        <div class="meta">
+          <span><b>Product:</b> Adobe Acrobat, Sign, Scan — AI Assistant</span>
+          <span><b>Location:</b> US, remote</span>
+          <span><b>Level:</b> Staff</span>
+          <span><b>Salary:</b> Staff range (US): $146K–$274K + AIP + equity (est.)</span>
+        </div>
+        <p class="product"><b>What is it?</b> Document Cloud's AI Assistant team designs the conversational AI layer sitting on top of 600M+ MAU's documents. Recognized in TIME Best Inventions 2024 and Fast Company's Most Innovative 2026 (Applied AI).</p>
+        <a class="link" href="https://careers.adobe.com/us/en/job/R165234/Staff-Product-Designer-Document-Cloud-GenAI">View original posting →</a>
+      </div>
+    </div>
+    <div class="body">
+      <div class="block">
+        <h4>Why I'm flagging this one</h4>
+        <ul>
+          <li>It wasn't in your original six, but it's the single closest match to WorkPal's design space: an agentic AI assistant sitting on top of a productivity surface used by hundreds of millions of knowledge workers.</li>
+          <li>Scale is in my comfort zone — flows I shaped at Cheetah reached 740M+ users.</li>
+          <li>TIME-recognized team = high design bar, which matches my craft standard.</li>
+        </ul>
+      </div>
+      <div class="block">
+        <h4>Why I fit</h4>
+        <ul class="fit-list">
+          <li><b>Agentic AI on a productivity surface</b> — exactly WorkPal's problem statement.</li>
+          <li><b>Consumer scale</b> — 740M+ users at Cheetah, driver + customer apps at Walmart.</li>
+          <li><b>Doc-surface design roots</b> — long history of content tools (Tencent Live, QZone, Cheetah content tools).</li>
+        </ul>
+      </div>
+    </div>
+  </article>
+
+  <!-- Closing -->
+  <section class="close">
+    <h3>The short version.</h3>
+    <p>Three of these roles (<b>GenStudio Principal</b>, <b>Platform Design Sr Staff</b>, <b>Frame.io Sr Staff</b>) sit exactly at the intersection of where I've worked, what I'm building now with WorkPal, and the level I've been operating at.</p>
+    <p>I'd love to talk about any of them. Portfolio: <a href="https://beibeidesign.com">beibeidesign.com</a>. I'm reachable at <a href="mailto:beibeizhang1122@gmail.com">beibeizhang1122@gmail.com</a> or 415-309-6496.</p>
+    <div class="sig">Thanks for reading, <br/><b>Beibei Zhang</b></div>
+  </section>
+
+  <div class="foot">Prepared April 2026 · Salary ranges and job details sourced from adobe.design/careers and linked original postings.</div>
+
+</div>
+</body>
+</html>
